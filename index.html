@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tennis Auslosung</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-image: url('https://source.unsplash.com/1600x900/?tennis');
+            background-size: cover;
+            color: white;
+        }
+        .container {
+            background: rgba(0, 0, 0, 0.7);
+            padding: 20px;
+            border-radius: 10px;
+            display: inline-block;
+            margin-top: 50px;
+        }
+        textarea {
+            width: 300px;
+            height: 100px;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Tennis Teams Auslosen</h1>
+        <form method="post">
+            <textarea name="names" placeholder="Gib die Namen ein (jeweils eine Zeile)"></textarea><br><br>
+            <button type="submit">Teams auslosen</button>
+        </form>
+        {% if teams %}
+            <h2>Teams:</h2>
+            <ul>
+                {% for team in teams %}
+                    <li>{{ team | join(" & ") }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+    </div>
+</body>
+</html>
